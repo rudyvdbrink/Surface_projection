@@ -24,6 +24,7 @@ function [dat, ldat, rdat] = glasserize_nifti(fname,makefig,surface)
 %         hemisphere only
 %
 % RL van den Brink, 2018
+% github.com/rudyvdbrink
 
 %% check input
 
@@ -38,6 +39,10 @@ end
 
 if ~exist('surface','var')
     surface = 'inflated';
+end
+
+if isempty(makefig)
+    makefig = 0;
 end
 
 if isempty(surface)
@@ -121,10 +126,10 @@ if makefig
     dat = file_mapped.brainstructure == 1; %indices of left hemisphere
     dat = file_mapped.indexmax(dat); %select left hemisphere
     dat(nidx) = 1000; %set null vertices to high value
-    clim = [-4 4]; %define color limit
+    clim = [-3 3]; %define color limit
     cmap = [inferno(180); 1 1 1];
     
-    cortsurfl(g,dat,cmap,clim)
+    cortsurfl(g,dat,cmap,clim,surface)
 end
 
 
@@ -191,9 +196,9 @@ if makefig
     dat = file_mapped.brainstructure == 2; %indices of right hemisphere
     dat = file_mapped.indexmax(dat); %select right hemisphere
     dat(isnan(dat)) = 1000; %set null vertices to high value
-    clim = [-4 4]; %define color limit
+    clim = [-3 3]; %define color limit
     cmap = [inferno(180); 1 1 1];
-    cortsurfr(g,dat,cmap,clim)
+    cortsurfr(g,dat,cmap,clim,surface)
 end
 
 %concatinate left and right hemispheres
