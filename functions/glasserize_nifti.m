@@ -15,8 +15,15 @@ function [dat, ldat, rdat] = glasserize_nifti(fname,makefig,surface)
 %           'very_inflated'
 %           'sphere'
 %   Output:
-%       - dat is a 2 x 180 vector of values 
-
+%       - dat is a 1 x 360 vector of values, the first 180 values are the
+%         parcels in the left hemisphere, the last 180 values are the right
+%         hemisphere
+%       - ldat is a 1 x 180 vector of values of parcels in the left
+%         hemisphere only
+%       - rdat is a 1 x 180 vector of values of parcels in the left
+%         hemisphere only
+%
+% RL van den Brink, 2018
 
 %% check input
 
@@ -181,10 +188,10 @@ if makefig
     gname = [gdir 'S1200.R.' surface '_MSMAll.32k_fs_LR.surf.gii'];
     g = gifti(gname); %surface    
     
-    dat = file_mapped.brainstructure == 2;
-    dat = file_mapped.indexmax(dat);
-    dat(isnan(dat)) = 1000;
-    clim = [-4 4];
+    dat = file_mapped.brainstructure == 2; %indices of right hemisphere
+    dat = file_mapped.indexmax(dat); %select right hemisphere
+    dat(isnan(dat)) = 1000; %set null vertices to high value
+    clim = [-4 4]; %define color limit
     cmap = [inferno(180); 1 1 1];
     cortsurfr(g,dat,cmap,clim)
 end
@@ -194,5 +201,4 @@ dat = [ldat rdat];
 
 
 end
-
 
