@@ -1,6 +1,9 @@
 function [file_ri_all, vertexdat] = glasserize_nifti(file,makefig)
-% data = glasserise_nifti(file,makefig,surface)
-% filename is a string denoting a nifti file
+% data = glasserize_nifti(file,makefig,surface) projects the data in 'file'
+% to HCP surface space and computes the parcel-wise median in the Glasser
+% atlas. 
+%
+% filename is a string denoting a nifti .nii file
 
 warning('off','all')
 if ~exist(file,'file')
