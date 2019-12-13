@@ -1,8 +1,8 @@
 function cortsurfr(g,dat,cmap,clim,surface)
-% CORTSURFL(gl,ldat,clim,surface) plots the data in ldat onto the cortical 
-% surface of the left hemisphere. 
+% CORTSURFL(gl,ldat,clim,surface) plots the data in rdat onto the cortical 
+% surface of the right hemisphere. 
 %
-% See also CORTSURFR
+% See also CORTSURFL
 %
 % RL van den Brink, 2019
 
