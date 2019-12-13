@@ -1,0 +1,9 @@
+clear
+close all
+clc
+
+%% path definition
+
+homedir = mfilename('fullpath'); %folder where this function is stored plus its file name
+homedir = homedir(1:end-7); %just the 
+rootdir = homedir(1:end-26); %folder with everything for surface projection
