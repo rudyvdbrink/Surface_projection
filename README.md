@@ -6,5 +6,5 @@ In order for this code to run, you need:
 
  - An installed version of the human connectome workbench software (link)
  - Fieldtrip (link)
- - Edit the relevant lines in the functions so that these packages are found by matlab
+ - Edit the relevant lines in the functions so that these packages are found by matlab (lines 55-57 in glasserize_nifti.m, and lines xxxx in glasserize_cifti.m)
  
