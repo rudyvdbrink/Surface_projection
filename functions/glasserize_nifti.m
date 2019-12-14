@@ -73,15 +73,7 @@ rmpath(genpath(ftdir)); %remove fieldtrip again because of annoying conflicting 
 
 %% project left hemisphere to surface
 
-filename = tempname; %define a temporary file name 
-method =  '-enclosing'; %define the projection method (enclosing works best)
-
-%map the volumetric image to the surface
-system([wb_command ' -volume-to-surface-mapping ' fname ' ' [gdir 'S1200.L.midthickness_MSMAll.32k_fs_LR.surf.gii'] ' ' [filename '.func.gii'] ' ' method]);
-
-%get the surface-level data and delete temporary files
-file = gifti([filename '.func.gii']);
-delete([filename '*'])
+file = surface_project(fname,'L');
 
 %% map data to atlas
 dat = atlas.brainstructure == 1; %find vertices in the left hemisphere
@@ -144,12 +136,7 @@ end
 
 %% project right hemisphere to surface
 
-%map the volumetric image to the surface
-system([wb_command ' -volume-to-surface-mapping ' fname ' ' [gdir 'S1200.R.midthickness_MSMAll.32k_fs_LR.surf.gii'] ' ' [filename '.func.gii'] ' ' method]);
-
-%get the surface-level data and delete temporary files
-file = gifti([filename '.func.gii']);
-delete([filename '*'])
+file = surface_project(fname,'R');
 
 %% map gene to atlas
 
