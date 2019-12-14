@@ -14,11 +14,11 @@ This code will allow you to do do the following:
     <img src="https://ruudvandenbrink.files.wordpress.com/2019/12/overview.png" width="600"\>
 </p>
 
-Code to plot and compute parcel-wise median values of a T1 / T2 contrast (myelin) is also provided. 
+Code to plot and compute parcel-wise median values of a T1 / T2 contrast (myelin map) is also provided. The myelin map as well as the surface files are from the HCP S1200 release (https://www.humanconnectome.org/study/hcp-young-adult/document/1200-subjects-data-release) 
+
+Labels to atlas parcels can be found in parcel_labels.csv.
 
 
 To do:
  - make a list of glasser labels
- - Include link to the HCP files
- - Update this readme file (lines to modify)
  
