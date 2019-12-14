@@ -1,9 +1,14 @@
 function file = surface_project(fname,hemi,fillholes,makefig,surface)
-% file = surface_project(fname,hemi,fillholes,makefig,surface)
+% data = surface_project(file,hemi,fillholes,makefig,surface)
 %
 %   Input: 
 %       - file is a string denoting a nifti .nii file, including its full 
 %         path
+%       - hemi is a string that indicates which hemisphere should be
+%         projected to the surface, and can be either 'L' (left, defautlt)
+%         or 'R' (right)
+%       - fillholes is a logical variable that determines if empty vertices
+%         are interprolated across (1) or not (0, default)
 %       - makefig determines if a plot of the surface projection is made 
 %         (1) or not (0, default)
 %       - surface is the surface used for plotting, and can be:
@@ -13,8 +18,8 @@ function file = surface_project(fname,hemi,fillholes,makefig,surface)
 %           'very_inflated'
 %           'sphere'
 %   Output:
-%       - file is a gifti object that contains vertex-wise values of the
-%         mapped file
+%       - data is a gifti object that contains vertex-wise values of the
+%         projected file
 %
 % RL van den Brink, 2018
 % github.com/rudyvdbrink
@@ -22,9 +27,9 @@ function file = surface_project(fname,hemi,fillholes,makefig,surface)
 %% check input
 
 warning('off','all')
-% if ~exist(fname,'file')
-%     error(['File ' fname ' not found']) 
-% end
+if ~exist(fname,'file')
+    error(['File ' fname ' not found']) 
+end
 
 if ~exist('hemi','var')
     hemi = 'L';

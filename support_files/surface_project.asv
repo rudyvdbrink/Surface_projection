@@ -1,9 +1,13 @@
 function file = surface_project(fname,hemi,fillholes,makefig,surface)
-% file = surface_project(fname,hemi,fillholes,makefig,surface)
+% data = surface_project(file,hemi,fillholes,makefig,surface)
 %
 %   Input: 
 %       - file is a string denoting a nifti .nii file, including its full 
 %         path
+%       - hemi is a string that indicates which hemisphere should be
+%         projected to the surface, and can be either 'L' (left, defautlt)
+%         or 'R' (right)
+%       - fillholes is a logical variable 
 %       - makefig determines if a plot of the surface projection is made 
 %         (1) or not (0, default)
 %       - surface is the surface used for plotting, and can be:
@@ -13,8 +17,8 @@ function file = surface_project(fname,hemi,fillholes,makefig,surface)
 %           'very_inflated'
 %           'sphere'
 %   Output:
-%       - file is a gifti object that contains vertex-wise values of the
-%         mapped file
+%       - data is a gifti object that contains vertex-wise values of the
+%         projected file
 %
 % RL van den Brink, 2018
 % github.com/rudyvdbrink
@@ -22,9 +26,9 @@ function file = surface_project(fname,hemi,fillholes,makefig,surface)
 %% check input
 
 warning('off','all')
-% if ~exist(fname,'file')
-%     error(['File ' fname ' not found']) 
-% end
+if ~exist(fname,'file')
+    error(['File ' fname ' not found']) 
+end
 
 if ~exist('hemi','var')
     hemi = 'L';
@@ -91,14 +95,20 @@ end
 
 %% make figure if requested
 
-if makefig    
-    disp('plotting')
-    
-    if strcmpi(hemi,'L')
-        dat = file.cdata;
-        dat(dat ~= 0) = zsocre(dat(dat ~= 0))
+if makefig
+    dat = file.cdata;
+    nidx = dat == 0;
+    dat(nidx) = 1000;
+    dat(~nidx) = zscore(dat(~nidx));
     clim = [-3 3];
-    cortsurfl(g,dat,cmap,clim,surface)
+    cmap = [inferno(180); 1 1 1];
+    
+    gname = [gdir 'S1200.' hemi '.' surface '_MSMAll.32k_fs_LR.surf.gii'];
+    g = gifti(gname); %surface
+    if strcmpi(hemi,'L')
+        cortsurfl(g,dat,cmap,clim,surface);
+    else
+        cortsurfr(g,dat,cmap,clim,surface);
     end
 end
 
@@ -112,18 +122,18 @@ function dat = fill_holes(dat,gdir,ftdir,hemi)
 %
 % interpolates across areas with values 0
 %
-% dat is c.cdata or rdat.cdata from a loaded gifti image that results from
-% volume to surface mapping using the hcp workbench software
+% dat is a gifti structure that resulted from volume to surface mapping 
+% using the hcp workbench software
 %
 % null indeces along the midline ventricles are used for the interpolation
 % so leave them untouched (i.e. setting to nan will result in nans for the
-% bordering interpolated regions. 
+% bordering interpolated regions). 
 
 
 %% get the cortical surface
 
 addpath(genpath('C:\DATA\Programs\gifti-1.6')) %gifti toolbox
-gname = [gdir 'S1200.L.midthickness_MSMAll.32k_fs_LR.surf.gii'];
+gname = [gdir 'S1200.' hemi '.midthickness_MSMAll.32k_fs_LR.surf.gii'];
 g = gifti(gname); %surface
 
 %% get the atlas (for null indices)
@@ -138,16 +148,11 @@ else
 end
 rmpath(genpath(ftdir)); %remove fieldtrip again because of annoying conflicting function name warnings
 
-%% format a bit
+%% get points to fill
 
 outdat = dat;
 dat = dat.cdata;
-
-% s = load('C:\DATA\Gene_clustring\Vox_samplocs.mat');
-
 nullvals = isnan(atlas.indexmax);
-% nv = dat(nullvals);
-% dat(s.samplocs) = 0; 
 idx = dat==0; %the indces of holes to fill
 dat = double(dat);
 
@@ -171,7 +176,7 @@ Y(idx) = [];
 Z(idx) = [];
 V(idx) = [];
 
-Vq = griddata(X,Y,Z,V,Xq,Yq,Zq); % interpolates to find Vq, the values
+Vq = griddata(X,Y,Z,V,Xq,Yq,Zq,'linear'); % interpolates to find Vq, the values
    
 dat(idx) = Vq;
 dat(isnan(dat)) = 0;
@@ -180,8 +185,6 @@ dat = single(dat);
 dat(nullvals) = 0;
 
 outdat.cdata = dat;
-cdat = outdat;
-
- 
+dat = outdat;
 
 end
