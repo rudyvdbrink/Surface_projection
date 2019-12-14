@@ -11,12 +11,8 @@ This code will not run out of the box. You'll need:
 This code will allow you to do do the following:
 
 <p align="center">
-    <img src="https://ruudvandenbrink.files.wordpress.com/2019/12/overview.png" width="450"\>
+    <img src="https://ruudvandenbrink.files.wordpress.com/2019/12/overview.png" width="600"\>
 </p>
-<p align="center">
-    The receptor maps
-</p>
-
 
 Code to plot and compute parcel-wise median values of a T1 / T2 contrast (myelin) is also provided. 
 
