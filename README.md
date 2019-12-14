@@ -2,16 +2,18 @@
  
 This repository contains matlab code to project volumetric nifti images in 2mm isotropic MNI space (example in folder 'volumetric') to the HCP MMP surface, and extract values of each parcel in the Glasser atlas (see example.m for syntax). 
 
-In order for this code to run on your system, you need:
+This code will not run out of the box. You'll need: 
 
  - An installed version of the human connectome workbench software (https://www.humanconnectome.org/software/get-connectome-workbench)
  - Fieldtrip (http://www.fieldtriptoolbox.org/)
- - To edit the relevant lines in the functions so that these packages are found by matlab (lines 55-57 in glasserize_nifti.m, and lines xxxx in glasserize_cifti.m)
+ - To edit the relevant lines in the functions so that these packages are found by matlab (lines 58-60 in glasserize_nifti.m, line 65 in glasserize_cifti.m, and lines 70-72 in surface_project.m)
+
+This code will allow you to do do the following:
+
+Code to plot and compute parcel-wise median values of a T1 / T2 contrast (myelin) is also provided. 
+
 
 To do:
- - help function surface_project
- - update glasserize_nifti with surface_project call
- - make figure
  - make a list of glasser labels
  - Include link to the HCP files
  - Update this readme file (lines to modify)
