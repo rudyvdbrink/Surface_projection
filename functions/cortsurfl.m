@@ -1,6 +1,6 @@
 function cortsurfl(g,dat,cmap,clim,surface)
-% CORTSURFL(gl,ldat,clim,surface) plots the data in ldat onto the cortical 
-% surface of the left hemisphere. 
+% CORTSURFL(gl,ldat,cmap,clim,surface) plots the data in ldat onto the 
+% cortical surface of the left hemisphere. 
 %
 % See also CORTSURFR
 %
@@ -35,7 +35,7 @@ if sum(strcmpi(surface,{'inflated' 'very_inflated' 'midthickness'}))
     ylim([-105 70])
     camlight left
 elseif strcmpi(surface,'flat')
-    view([270 90])
+    view([-270 90])
 elseif strcmpi(surface,'sphere')
     view([-230 0])
     camlight left

@@ -2,10 +2,13 @@ function [dat, ldat, rdat] = glasserize_nifti(fname,makefig,surface)
 % data = glasserize_nifti(file,makefig,surface) projects the data in 'file'
 % to HCP surface space and computes the parcel-wise median in the Glasser
 % atlas. 
+%
+% The data are z-scored across parcels. Color range of the figures is -3 to
+% 3.
 %   
 %   Input: 
-%       - filename is a string denoting a nifti .nii file, including its 
-%         full path
+%       - file is a string denoting a nifti .nii file, including its full 
+%         path
 %       - makefig determines if a plot of the surface projection is made 
 %         (1) or not (0, default)
 %       - surface is the surface used for plotting, and can be:

@@ -1,12 +1,9 @@
 function  [dat, ldat, rdat] = glasserize_cifti(fname,makefig,surface)
 % data = glasserize_cifti(file,makefig,surface) gets the data in 'file'
 % and computes the parcel-wise median in the Glasser atlas. This currently
-% only works for the HCP myelin map that is supplied with this repository, 
-% because the imported cifti structure contains fields that are dependant 
-% on the filename. 
-%
-% No z-scoring is applied to the data, and the color range for figures is 1
-% to 1.8.
+% only works for the HCP myelin map, because the imported cifti structure 
+
+
 %   
 %   Input: 
 %       - file is a string denoting a cifti .nii file, including its full 
