@@ -119,17 +119,22 @@ end
 %% supporting function
 
 function dat = fill_holes(dat,gdir,ftdir,hemi)
-% usage: dat = fix_holes(dat);
+% usage: dat = fill_holes(dat,gdir,ftdir,hemi);
 %
 % interpolates across areas with values 0
 %
-% dat is a gifti structure that resulted from volume to surface mapping 
-% using the hcp workbench software
+%    - dat is a gifti structure that resulted from volume to surface 
+%      mapping using the hcp workbench software
+%    - gdir if the folder with the gifti toolbox
+%    - ftdir is the folder with fieldtrip
+%    - hemi is a string that determines which hemisphere we're working on
+%      (either 'L' or 'R')
 %
 % null indeces along the midline ventricles are used for the interpolation
 % so leave them untouched (i.e. setting to nan will result in nans for the
 % bordering interpolated regions). 
-
+%
+% fill_holes removes values from the midline after interpolation
 
 %% get the cortical surface
 
