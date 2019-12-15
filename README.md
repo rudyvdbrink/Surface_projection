@@ -11,7 +11,7 @@ This code will not run out of the box. You'll need:
 This code will allow you to do do the following:
 
 <p align="center">
-    <img src="https://ruudvandenbrink.files.wordpress.com/2019/12/overview-1.png" width="600"\>
+    <img src="https://raw.githubusercontent.com/rudyvdbrink/Surface_projection/master/overview.png" width="600"\>
 </p>
 
 Code to compute and plot parcel-wise median values of a T1 / T2 contrast (myelin map) is also provided. The myelin map as well as the surface files are from the HCP S1200 release (https://www.humanconnectome.org/study/hcp-young-adult/document/1200-subjects-data-release) 
