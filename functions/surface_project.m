@@ -72,7 +72,7 @@ wb_command = [wb 'bin_windows64\wb_command']; %command for workbench (this shoul
 ftdir      =  'C:\DATA\Programs\fieldtrip-20170809'; %folder with fieldtrip, I used the version of 2017 08 09
 
 homedir = mfilename('fullpath'); %folder where this function is stored plus its file name
-rootdir = homedir(1:end-29); %folder with everything for surface projection
+rootdir = homedir(1:end-25); %folder with everything for surface projection
 gdir    = [rootdir 'support_files\']; %folder where the suraces are stored
 addpath(genpath(rootdir));
 
