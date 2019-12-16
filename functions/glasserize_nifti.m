@@ -23,7 +23,7 @@ function [dat, ldat, rdat] = glasserize_nifti(fname,makefig,surface)
 %         hemisphere
 %       - ldat is a 1 x 180 vector of values of parcels in the left
 %         hemisphere only
-%       - rdat is a 1 x 180 vector of values of parcels in the left
+%       - rdat is a 1 x 180 vector of values of parcels in the right
 %         hemisphere only
 %
 % RL van den Brink, 2018
