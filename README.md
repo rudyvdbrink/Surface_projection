@@ -8,7 +8,7 @@ This code will not run out of the box. You'll need:
  - Fieldtrip (http://www.fieldtriptoolbox.org/)
  - To edit the relevant lines in the functions so that these packages are found by matlab (lines 58-60 in glasserize_nifti.m, line 65 in glasserize_cifti.m, and lines 70-72 in surface_project.m)
 
-This code will allow you to do do the following:
+This code will enable you to do do the following:
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/rudyvdbrink/Surface_projection/master/overview.png" width="600"\>
