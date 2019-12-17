@@ -1,6 +1,6 @@
 # Surface projection
  
-This repository contains matlab code to project volumetric nifti images in 2mm isotropic MNI space (example in folder 'volumetric') to the HCP MMP surface, and extract values of each parcel in the Glasser atlas (see example.m for syntax). 
+This repository contains matlab code to project volumetric nifti images in 2mm isotropic MNI space (see example file in folder 'volumetric') to the HCP MMP surface, and extract values of each parcel in the Glasser atlas (see example.m for syntax). 
 
 This code will not run out of the box. You'll need: 
 
