@@ -8,7 +8,9 @@ function file = surface_project(fname,hemi,fillholes,makefig,surface)
 %         projected to the surface, and can be either 'L' (left, defautlt)
 %         or 'R' (right)
 %       - fillholes is a logical variable that determines if empty vertices
-%         are interprolated across (1) or not (0, default)
+%         are interprolated across (1) or not (0, default). if fillholes is
+%         selected, projected values on the medial wall are also set to 
+%         zero
 %       - makefig determines if a plot of the surface projection is made 
 %         (1) or not (0, default)
 %       - surface is the surface used for plotting, and can be:
