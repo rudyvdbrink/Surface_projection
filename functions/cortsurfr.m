@@ -36,6 +36,7 @@ if sum(strcmpi(surface,{'inflated' 'very_inflated' 'midthickness'}))
     camlight left
 elseif strcmpi(surface,'flat')
     view([270 90])
+    camlight left
 elseif strcmpi(surface,'sphere')
     view([230 0])
     camlight left
