@@ -15,7 +15,7 @@ surface_project(fname,'L',1,1,'inflated');
 
 %% project a volumetric file on a very inflated surface, and plot it parcel-wise, and get the data into working memory
 
-[dat2, ldat2, rdat2] = glasserize_nifti(fname,1,'very_inflated'); %surface project and plot
+[dat, ldat, rdat] = glasserize_nifti(fname,1,'very_inflated'); %surface project and plot
 
 %% plot the myelin map on a sphere parcel-wise
 
