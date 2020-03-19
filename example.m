@@ -13,6 +13,9 @@ addpath(genpath(homedir))
 fname = [homedir 'volumetric\CHRNB3.nii']; %define file name
 surface_project(fname,'L',1,1,'inflated');
 
+%surface_project_raw does the same as surface_project, but no spatial
+%normalization is applied
+
 %% project a volumetric file on a very inflated surface, and plot it parcel-wise, and get the data into working memory
 
 [dat, ldat, rdat] = glasserize_nifti(fname,1,'very_inflated'); %surface project and plot
