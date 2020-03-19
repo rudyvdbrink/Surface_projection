@@ -94,6 +94,8 @@ delete([filename '*'])
 
 if fillholes
     file = fill_holes(file,gdir,ftdir,hemi);
+else
+    file.cdata(isnan(file.cdata)) = 0;
 end
 
 %% make figure if requested
