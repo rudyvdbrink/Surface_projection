@@ -10,7 +10,7 @@ function file = surface_project_raw(fname,hemi,fillholes,makefig,surface)
 %       - fillholes is a logical variable that determines if empty vertices
 %         are interprolated across (1) or not (0, default). if fillholes is
 %         selected, projected values on the medial wall are also set to 
-%         zero
+%         nan
 %       - makefig determines if a plot of the surface projection is made 
 %         (1) or not (0, default)
 %       - surface is the surface used for plotting, and can be:
@@ -85,7 +85,6 @@ method =  '-enclosing'; %define the projection method (enclosing works best)
 
 %map the volumetric image to the surface
 system([wb_command ' -volume-to-surface-mapping ' fname ' ' [gdir 'S1200.' hemi '.midthickness_MSMAll.32k_fs_LR.surf.gii'] ' ' [filename '.func.gii'] ' ' method]);
-% system([wb_command ' -volume-to-surface-mapping ' fname ' ' [gdir 'MNI.' hemi '.midthickness.32k_fs_LR.surf.gii'] ' ' [filename '.func.gii'] ' ' method]);
 
 %get the surface-level data and delete temporary files
 file = gifti([filename '.func.gii']);
@@ -103,9 +102,8 @@ end
 
 if makefig
     dat = file.cdata;
-    nidx = dat == 0;
+    nidx = isnan(dat);
     dat(nidx) = 1000;
-%     dat(~nidx) = zscore(dat(~nidx));
     clim = [min(dat(~nidx)) max(dat(~nidx))];
     cmap = [inferno(180); 1 1 1];
     
@@ -193,7 +191,7 @@ dat(idx) = Vq;
 dat(isnan(dat)) = 0;
 
 dat = single(dat);
-dat(nullvals) = 0;
+dat(nullvals) = nan;
 
 outdat.cdata = dat;
 dat = outdat;
