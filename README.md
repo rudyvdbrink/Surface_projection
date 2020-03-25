@@ -6,7 +6,7 @@ This code will not run out of the box. You'll need:
 
  - An installed version of the human connectome workbench software (https://www.humanconnectome.org/software/get-connectome-workbench)
  - Fieldtrip (http://www.fieldtriptoolbox.org/)
- - To edit the relevant lines in the "functions/pathfindr();" function so that these packages are found by matlab (lines 21, 25, and possibly line 23 depending on your OS)
+ - To edit the relevant lines in the "functions/pathfindr();" so that these packages are found by matlab (lines 21, 25, and possibly line 23 depending on your OS)
 
 This code will enable you to do do the following:
 
