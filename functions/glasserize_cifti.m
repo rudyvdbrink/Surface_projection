@@ -58,11 +58,9 @@ end
 
 homedir = mfilename('fullpath'); %folder where this function is stored plus its file name
 rootdir = homedir(1:end-26); %folder with everything for surface projection
-gdir    = [rootdir 'support_files\']; %folder where the suraces are stored
+gdir    = pathfindr('gdir'); %folder where the suraces are stored
 addpath(genpath(rootdir));
-
-%     -------CHANGE THIS------
-ftdir =  'C:\DATA\Programs\fieldtrip-20170809'; %folder with fieldtrip, I used the version of 2017 08 09
+ftdir =  pathfindr('ftdir'); %folder with fieldtrip, I used the version of 2017 08 09
 
 %% get glasser atlas and load the data
 

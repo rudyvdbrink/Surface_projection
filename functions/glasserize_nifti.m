@@ -54,15 +54,11 @@ end
 
 %% path definitions
 
-%     -------CHANGE THIS------
-wb         = 'C:\DATA\Programs\workbench\'; %workbench folder
-wb_command = [wb 'bin_windows64\wb_command']; %command for workbench (this should refer to the wb_command.exe file, without the ".exe" extension
-ftdir      =  'C:\DATA\Programs\fieldtrip-20170809'; %folder with fieldtrip, I used the version of 2017 08 09
-
+ftdir      =  pathfindr('ftdir'); %folder with fieldtrip, I used the version of 2017 08 09
 homedir = mfilename('fullpath'); %folder where this function is stored plus its file name
-rootdir = homedir(1:end-26); %folder with everything for surface projection
-gdir    = [rootdir 'support_files\']; %folder where the suraces are stored
+rootdir = homedir(1:end-29); %folder with everything for surface projection
 addpath(genpath(rootdir));
+gdir    = pathfindr('gdir'); %folder where the suraces are stored
 
 %% get glasser atlas
 
