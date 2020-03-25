@@ -1,6 +1,12 @@
 # Surface projection
  
-This repository contains matlab code to project 3D volumetric nifti images in 2mm isotropic MNI space (see example file in folder 'volumetric') to the HCP MMP surface, and extract values of each parcel in the Glasser atlas (see example.m for syntax). 
+This repository contains matlab code to:
+ - Project 3D volumetric nifti images in 2mm isotropic MNI space (see example file in folder 'volumetric') to the HCP MMP surface
+ - Extract values of each parcel in the Glasser atlas 
+ - Create null maps by spherical rotation
+ - Test spatial correlation between maps and compute p-values      that take into account the spatial auto correlation in the maps 
+
+See example.m for syntax. 
 
 This code will not run out of the box. You'll need: 
 
@@ -8,7 +14,6 @@ This code will not run out of the box. You'll need:
  - Fieldtrip (http://www.fieldtriptoolbox.org/)
  - To edit the relevant lines in the "functions/pathfindr();" so that these packages are found by matlab (lines 21, 25, and possibly line 23 depending on your OS)
 
-This code will enable you to do do the following:
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/rudyvdbrink/Surface_projection/master/overview.png" width="600"\>
@@ -20,10 +25,13 @@ Labels to atlas parcels can be found in Glasser_labels.csv.
 
 List of functions:
 
- - classerize_nifti: produce parcel-wise median values for a volumetric nifti (.nii) file
+ - glasserize_nifti: produce parcel-wise median values for a volumetric nifti (.nii) file
  - glasserize_cifti: produce parcel-wise median values for a surface file
+ - glasserize_surface: produce parcel-wise median values for a surface vector
  - surface_project: project a volumetric file to the cortical surface, and return spatially z-scored vertex-wise values 
- - surface_project_raw: project a volumetric file to the cortical surface, and return the raw vertex-wise values 
+ - surface_project_raw: project a volumetric file to the cortical surface, and return the raw vertex-wise values
+ - correlate_surface: does the spatial correlation between maps
+ - sphere_rotate: produces surrogate maps 
  - cortsurfl: plot data onto the cortical surface of the left hemisphere
  - cortsurfr: plot data onto the cortical surface of the right hemisphere
  - pathfindr: function to set paths
