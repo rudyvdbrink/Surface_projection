@@ -30,8 +30,8 @@ List of functions:
  - glasserize_surface: produce parcel-wise median values for a surface vector
  - surface_project: project a volumetric file to the cortical surface, and return spatially z-scored vertex-wise values 
  - surface_project_raw: project a volumetric file to the cortical surface, and return the raw vertex-wise values
- - correlate_surface: does the spatial correlation between maps
- - sphere_rotate: produces surrogate maps 
+ - correlate_surface: correlate two surface vectors while controlling for spatial autocorrelation
+ - sphere_rotate: produce spherically rotated surrogate maps 
  - cortsurfl: plot data onto the cortical surface of the left hemisphere
  - cortsurfr: plot data onto the cortical surface of the right hemisphere
  - pathfindr: function to set paths
