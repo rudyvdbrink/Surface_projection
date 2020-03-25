@@ -50,7 +50,7 @@ if ~exist('surface','var')
 end
 
 if isempty(hemi)
-    surface = 'L';
+    hemi = 'L';
 end
 
 if isempty(makefig)
