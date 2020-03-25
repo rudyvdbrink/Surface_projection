@@ -4,7 +4,7 @@ This repository contains matlab code to:
  - Project 3D volumetric nifti images in 2mm isotropic MNI space (see example file in folder 'volumetric') to the HCP MMP surface
  - Extract values of each parcel in the Glasser atlas 
  - Create null maps by spherical rotation
- - Test spatial correlation between maps and compute p-values      that take into account the spatial auto correlation in the maps 
+ - Test spatial correlation between maps and compute p-values      that take into account spatial autocorrelation in the maps 
 
 See example.m for syntax. 
 
