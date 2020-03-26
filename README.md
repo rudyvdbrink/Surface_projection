@@ -48,4 +48,4 @@ List of functions:
 
 References:
 
-* Alexander-Bloch, AF, Shou, H, Liu, S, Satterthwaite, TD, Glahn, DC, Shinohara, RT, Vandekar, SN, Raznahan, A, (2018) On testing for spatialcorrespondence between maps of human brain structure and function.Neuroimage 178, 540-551. doi:10.1016/j.neuroimage.2018.05.070
+* Alexander-Bloch, AF, Shou, H, Liu, S, Satterthwaite, TD, Glahn, DC, Shinohara, RT, Vandekar, SN, Raznahan, A, (2018) On testing for spatialcorrespondence between maps of human brain structure and function. Neuroimage 178, 540-551. doi:10.1016/j.neuroimage.2018.05.070
