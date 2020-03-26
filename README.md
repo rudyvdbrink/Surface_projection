@@ -14,6 +14,7 @@ This code will not run out of the box. You'll need:
  - Fieldtrip (http://www.fieldtriptoolbox.org/)
  - To edit the relevant lines in the "functions/pathfindr();" so that these packages are found by matlab (lines 21, 25, and possibly line 23 depending on your OS)
 
+Surface projection will allow you to do the following:
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/rudyvdbrink/Surface_projection/master/surface_projection_overview.png" width="600"\>
@@ -25,7 +26,7 @@ Spin testing works as follows:
     <img src="https://raw.githubusercontent.com/rudyvdbrink/Surface_projection/master/spin_test_overview.png" width="600"\>
 </p>
 
-Correlate_surface(); does the spin testing. It requires two input arguments, of which at least one is vertex-level data. In case one of the input surfaces is pre-parcellated, use the 'glasser' option. In this case, use the parcellated map as the first input, and the vertex-level map as the second input.  
+Correlate_surface(); does the spin testing. It requires two input arguments, of which at least one is vertex-level data. In case one of the input surfaces is pre-parcellated, use the 'glasser' option. In this case, use the parcellated map as the first input, and the vertex-level map as the second input. The medial wall of the original surface as well as the rotated surrogate surfaces are blanked out and excluded from correlation, so each correlation in the null distribution will have a slightly different number of parcels / vertices that are included.   
 
 Code to compute and plot parcel-wise median values of a T1 / T2 contrast (myelin map) is also provided. The myelin map as well as the surface files are from the HCP S1200 release (https://www.humanconnectome.org/study/hcp-young-adult/document/1200-subjects-data-release). The file 'mvals.csv' also contains the parcel-wise median values of the myelin map.  
 
