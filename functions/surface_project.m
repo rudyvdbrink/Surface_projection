@@ -141,7 +141,6 @@ function dat = fill_holes(dat,gdir,ftdir,hemi)
 
 %% get the cortical surface
 
-addpath(genpath('C:\DATA\Programs\gifti-1.6')) %gifti toolbox
 gname = [gdir 'S1200.' hemi '.midthickness_MSMAll.32k_fs_LR.surf.gii'];
 g = gifti(gname); %surface
 
