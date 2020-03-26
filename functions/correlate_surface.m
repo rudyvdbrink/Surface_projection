@@ -81,7 +81,7 @@ if ~exist('opts','var')
     opts = {'type', 's'};
 end
 
-if ~isempty(opts)
+if isempty(opts)
     opts = {'type', 's'};
 end
 
