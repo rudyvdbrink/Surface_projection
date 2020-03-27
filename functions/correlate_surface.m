@@ -1,7 +1,7 @@
 function [r, p, r_null, maps_null] = correlate_surface(surface1,surface2,npermutes,hemi,tail,mode,opts)
 % [r, p, r_null, maps_null] = correlate_surface(s1,s2,np,hemi,tail,mode,opts)
 % 
-% Spatially correlate two max (s1 and s2), and compute a p-value for this
+% Spatially correlate two maps (s1 and s2), and compute a p-value for this
 % correlation based on spherically rotated surrogate (null) maps, computed
 % with the spin-test method described by Alexander-Bloch et al (2018). 
 % Input s2 is used to generate the null maps.  
