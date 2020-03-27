@@ -31,8 +31,7 @@ function [r, p, r_null, maps_null] = correlate_surface(surface1,surface2,npermut
 %       - p: the p-value of the correlation, taking spatial
 %         auto-correlation into account.
 %       - r_null: the null distribution of correlation coefficients
-%       - maps_null: vertex by npermutes matrix of spherically rotated null
-%         maps.
+%       - maps_null: vertex by np matrix of spherically rotated null maps
 %
 % Reference:
 % Alexander-Bloch, AF, Shou, H, Liu, S, Satterthwaite, TD, Glahn, DC,
