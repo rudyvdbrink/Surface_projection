@@ -26,7 +26,7 @@ switch inpath
     case 'gdir'
         homedir = mfilename('fullpath'); %folder where this function is stored plus its file name
         rootdir = homedir(1:end-19); %folder with everything for surface projection
-        path    = [rootdir 'support_files\']; %folder where the suraces are stored        
+        path    = [rootdir 'support_files\']; %folder where the surfaces are stored        
 end
 
 if ~exist('path','var')
