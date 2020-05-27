@@ -1,4 +1,4 @@
-function  [dat, ldat, rdat] = glasserize_cifti(fname,makefig,surface)
+function  [dat, ldat, rdat, vdat] = glasserize_cifti(fname,makefig,surface)
 % data = glasserize_cifti(file,makefig,surface) gets the data in 'file'
 % and computes the parcel-wise median in the Glasser atlas. This currently
 % only works for the HCP myelin map that is supplied with this repository, 
@@ -27,6 +27,7 @@ function  [dat, ldat, rdat] = glasserize_cifti(fname,makefig,surface)
 %         hemisphere only
 %       - rdat is a 1 x 180 vector of values of parcels in the right
 %         hemisphere only
+%       - vdat is the orgininal vertex-wise data
 %
 % RL van den Brink, 2018
 % github.com/rudyvdbrink
@@ -68,6 +69,7 @@ addpath(genpath(ftdir)); %add fieldtrip to path
 atlas = [gdir 'Glasser_atlas.dlabel.nii']; %define Glasser atlas file
 atlas = ft_read_cifti(atlas); %load the atlas
 c     = ft_read_cifti(fname); %load the data
+vdat  = c.myelinmap;
 rmpath(genpath(ftdir)); %remove fieldtrip again because of annoying conflicting function name warnings
 
 %% get values for left hemisphere
