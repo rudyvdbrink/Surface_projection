@@ -20,7 +20,7 @@ switch inpath
     case 'wbdir'
         path = 'C:\DATA\Programs\workbench\'; %workbench folder
     case 'wbcommand'
-        path = 'bin_windows64'; %folder name (within workbench folder) that contains wb_command.exe
+        path = 'bin_windows64\'; %folder name (within workbench folder) that contains wb_command.exe
     case 'ftdir'
         path = 'C:\DATA\Programs\fieldtrip-20170809\'; %folder with fieldtrip, I used the version of 2017 08 09
     case 'gdir'
