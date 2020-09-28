@@ -28,7 +28,7 @@ Spin testing works as follows:
 
 Correlate_surface(); does the spin testing. It requires two input arguments, of which at least one is vertex-level data. In case one of the input surfaces is pre-parcellated, use the 'glasser' option. In this case, use the parcellated map as the first input, and the vertex-level map as the second input. The medial wall of the original surface as well as the rotated surrogate surfaces (white parts in the figure above) are blanked out and excluded from correlation, so each correlation in the null distribution will have a slightly different number of parcels / vertices that are included.   
 
-Code to compute and plot parcel-wise median values of a T1 / T2 contrast (myelin map) is also provided. The myelin map as well as the surface files are from the HCP S1200 release (https://www.humanconnectome.org/study/hcp-young-adult/document/1200-subjects-data-release). The file 'mvals.csv' also contains the parcel-wise median values of the myelin map.  
+Code to compute and plot parcel-wise median values of a T1 / T2 contrast (myelin map) is also provided. The myelin map as well as the surface files are from the HCP S1200 release (https://www.humanconnectome.org/study/hcp-young-adult/document/1200-subjects-data-release). The file 'mvals.csv' also contains the parcel-wise median values of the myelin map. The file 'tvals.csv' contains parcel-wise median values of a cortical thickness map.  
 
 Labels to atlas parcels can be found in Glasser_labels.csv.
 
