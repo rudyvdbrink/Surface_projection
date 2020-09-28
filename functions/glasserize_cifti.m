@@ -69,7 +69,8 @@ addpath(genpath(ftdir)); %add fieldtrip to path
 atlas = [gdir 'Glasser_atlas.dlabel.nii']; %define Glasser atlas file
 atlas = ft_read_cifti(atlas); %load the atlas
 c     = ft_read_cifti(fname); %load the data
-vdat  = c.myelinmap;
+f     = fields(c); %get field names of the data structure, which depend on the file name
+vdat  = eval(['c.' f{end}]); %get the vertex-level data
 rmpath(genpath(ftdir)); %remove fieldtrip again because of annoying conflicting function name warnings
 
 %% get values for left hemisphere
@@ -91,7 +92,7 @@ ldat = zeros(1,length(ris));
 for rj = 1:length(ris)
     ri = ris(rj);
     idx = dat == ri;
-    file_ri = nonzeros(c.myelinmap(idx));
+    file_ri = nonzeros(vdat(idx));
     ldat(rj) = nanmedian(file_ri);
 end
 
@@ -148,7 +149,7 @@ offset = sum(atlas.brainstructure == 2); %accounts for the fact that the loaded 
 for rj = 1:length(ris)
     ri = ris(rj); %get value of current parcel
     idx = find(dat == ri)-offset; %find vertices of the current parcel (in the right hemsiphere)
-        file_ri = nonzeros(c.myelinmap(idx)); %get data of the current parcel
+        file_ri = nonzeros(vdat(idx)); %get data of the current parcel
     rdat(rj) = nanmedian(file_ri); %take the median, while excluding empty vertices
 end
 
