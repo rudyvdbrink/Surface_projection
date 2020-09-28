@@ -69,7 +69,7 @@ end
 %% path definitions
 
 wb         = pathfindr('wbdir'); %workbench folder
-wb_command = [wb pathfindr('wbcommand') '\wb_command']; %command for workbench (this should refer to the wb_command.exe file, without the ".exe" extension
+wb_command = [wb pathfindr('wbcommand') 'wb_command']; %command for workbench (this should refer to the wb_command.exe file, without the ".exe" extension
 ftdir      =  pathfindr('ftdir'); %folder with fieldtrip, I used the version of 2017 08 09
 
 homedir = mfilename('fullpath'); %folder where this function is stored plus its file name
