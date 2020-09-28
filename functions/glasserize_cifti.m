@@ -119,9 +119,8 @@ if makefig
     dat = file_mapped.brainstructure == 1; %indices of left hemisphere
     dat = file_mapped.indexmax(dat); %select left hemisphere
     dat(nidx) = 1000; %set null vertices to high value
-    clim = [1 1.8]; %define color limit
-    cmap = [inferno(180); 1 1 1];
-    
+    clim = [min(ldat) max(ldat)]; %define color limit
+    cmap = [inferno(180); 1 1 1];    
     cortsurfl(g,dat,cmap,clim,surface)
 end
 
@@ -149,7 +148,7 @@ offset = sum(atlas.brainstructure == 2); %accounts for the fact that the loaded 
 for rj = 1:length(ris)
     ri = ris(rj); %get value of current parcel
     idx = find(dat == ri)-offset; %find vertices of the current parcel (in the right hemsiphere)
-        file_ri = nonzeros(vdat(idx)); %get data of the current parcel
+    file_ri = nonzeros(vdat(idx)); %get data of the current parcel
     rdat(rj) = nanmedian(file_ri); %take the median, while excluding empty vertices
 end
 
@@ -173,7 +172,7 @@ if makefig
     dat = file_mapped.brainstructure == 2; %indices of right hemisphere
     dat = file_mapped.indexmax(dat); %select right hemisphere
     dat(isnan(dat)) = 1000; %set null vertices to high value
-    clim = [1 1.8]; %define color limit
+    clim = [min(rdat) max(rdat)]; %define color limit
     cmap = [inferno(180); 1 1 1];
     cortsurfr(g,dat,cmap,clim,surface)
 end
