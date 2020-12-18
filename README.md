@@ -1,4 +1,9 @@
 # Surface projection
+
+
+
+[![DOI](https://zenodo.org/badge/227845066.svg)](https://zenodo.org/badge/latestdoi/227845066)
+
  
 This repository contains matlab code to:
  - Project 3D volumetric nifti images in 2mm isotropic MNI space (see example file in folder 'volumetric') to the HCP MMP surface
