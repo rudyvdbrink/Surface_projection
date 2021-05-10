@@ -50,7 +50,11 @@ if ~exist('surface','var')
 end
 
 if isempty(hemi)
-    surface = 'L';
+    hemi = 'L';
+end
+
+if isempty(fillholes)
+    fillholes = 0;
 end
 
 if isempty(makefig)
@@ -59,10 +63,6 @@ end
 
 if isempty(surface)
     surface = 'inflated';
-end
-
-if isempty(hemi)
-    surface = 'L';
 end
 
 

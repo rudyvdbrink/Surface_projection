@@ -53,16 +53,16 @@ if isempty(hemi)
     hemi = 'L';
 end
 
+if isempty(fillholes)
+    fillholes = 0;
+end
+
 if isempty(makefig)
     makefig = 0;
 end
 
 if isempty(surface)
     surface = 'inflated';
-end
-
-if isempty(hemi)
-    surface = 'L';
 end
 
 
